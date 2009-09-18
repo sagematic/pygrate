@@ -17,9 +17,10 @@ class StepMigrator(object):
         return step_name(self._step)
 
     def phase_complete(self, phase):
-        print "state = %s, %s, %s" % (self._state.add_state
-                , self._state.drop_state
-                , self._state.commit_state)
+        print "phase=%s, state: add=%s, drop=%s, commit=%s" % (  phase
+                                                               , self._state.add_state
+                                                               , self._state.drop_state
+                                                               , self._state.commit_state)
         if (not hasattr(self._step, phase)):
             return True
         state_flag = "%s_state" % phase
